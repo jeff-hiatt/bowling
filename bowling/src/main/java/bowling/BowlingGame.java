@@ -29,6 +29,16 @@ public class BowlingGame {
             if(currentFrame.isSpare()) {
                 score += frames.get(i + 1).firstRoll();
             }
+
+            if(currentFrame.isStrike()) {
+                score += frames.get(i + 1).firstRoll();
+                if (frames.get(i+1).isStrike()) {
+                    score += frames.get(i + 2).firstRoll();
+                }
+                else {
+                    score += frames.get(i + 1).secondRoll();
+                }
+            }
          }
         return score;
     }

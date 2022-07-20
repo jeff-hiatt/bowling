@@ -83,4 +83,52 @@ public class BowlingGameTest {
 
         assertEquals(14 + 9, game.getTotalScore());
     }
+
+    @Test
+    void strike() {
+        BowlingGame game = new BowlingGame();
+
+        //frame 1
+        game.addRoll(10);
+
+        //frame 2
+        game.addRoll(1);
+        game.addRoll(2);
+
+        //frame 3
+        game.addRoll(3);
+        game.addRoll(4);
+
+        // remaining frame
+        for (int i = 0; i < 7; i++) {
+            game.addRoll(0);
+            game.addRoll(0);
+        }
+
+        assertEquals(13 + 3 + 7, game.getTotalScore());
+    }
+
+    @Test
+    void multi_strike() {
+        BowlingGame game = new BowlingGame();
+
+        //frame 1
+        game.addRoll(10);
+
+        //frame 2
+        game.addRoll(1);
+        game.addRoll(2);
+
+        //frame 3
+        game.addRoll(3);
+        game.addRoll(4);
+
+        // remaining frame
+        for (int i = 0; i < 7; i++) {
+            game.addRoll(0);
+            game.addRoll(0);
+        }
+
+        assertEquals(13 + 3 + 7, game.getTotalScore());
+    }
 }
