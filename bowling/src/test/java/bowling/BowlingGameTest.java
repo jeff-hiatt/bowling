@@ -109,26 +109,29 @@ public class BowlingGameTest {
     }
 
     @Test
-    void multi_strike() {
+    void multiStrike() {
         BowlingGame game = new BowlingGame();
 
         //frame 1
         game.addRoll(10);
 
         //frame 2
+        game.addRoll(10);
+
+        //frame 3
         game.addRoll(1);
         game.addRoll(2);
 
-        //frame 3
+        //frame 4
         game.addRoll(3);
         game.addRoll(4);
 
         // remaining frame
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 6; i++) {
             game.addRoll(0);
             game.addRoll(0);
         }
 
-        assertEquals(13 + 3 + 7, game.getTotalScore());
+        assertEquals(21 + 13 + 3 + 7, game.getTotalScore());
     }
 }
